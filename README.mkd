@@ -1,0 +1,32 @@
+# How to run and use module
+
+## How to execute
+
+  To execute the project simply follow the steps below:
+    - Unzip the project folder in the location of your choice
+    - Open a terminal and move to the project root DIR
+    - run the following command in your terminal ```node server.js```
+    - node server should boot project to localhost port 4000 if available
+
+## How to access asset file
+
+### Introduction
+
+  Each DIR in the assets DIR is considered an independent client storage entity. As such one needs to provide separate and specific Oauth2.0 credentials when trying to access any assets from the corresponding DIR.
+
+### Retrieve list of corresponding assets
+
+  In order to access the corresponding client assets, the client app needs to call the file manager while providing some valid credentials via headers. i.e. <key, value>. Below is an illustration of the headers needed;
+
+  x-client-id: 'bo-id-456',
+  x-client-secret: 'bo-secret-abc'
+
+  API_ASSET_URL=<http://localhost:4000/api>
+  
+    - Above is the baseURL to get assets from file manager
+
+  READ_ASSET_URL=<http://localhost:4000>
+  
+    - Above is the baseUrl to read assets in html tags e.g. ```<img src='http://localhost:4000/logo.png' alt='Logo' />```
+
+  Keep in mind that each time the file manager is called with the appropriate authentication headers, ONLY the content of the DIR corresponding to the client credentials provided is returned.
